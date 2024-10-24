@@ -84,7 +84,7 @@ void WatchdogTask::HandleHeartbeat(uint16_t taskCommand)
 {
     switch (taskCommand) {
     case RADIOHB_REQUEST:
-        GPIO::LED2::Toggle();
+        // GPIO::LED2::Toggle();
         // SOAR_PRINT("HEARTBEAT RECEIVED \n");
         heartbeatTimer->ResetTimerAndStart();
         break;
@@ -105,17 +105,21 @@ void WatchdogTask::HandleHeartbeat(uint16_t taskCommand)
 void WatchdogTask::Run(void * pvParams)
 {
     uint32_t tempSecondCounter = 0; // TODO: Temporary counter, would normally be in HeartBeat task or HID Task, unless FlightTask is the HeartBeat task
-    GPIO::LED1::Off();
+    // GPIO::LED1::Off();
 
     heartbeatTimer = new Timer(HeartbeatFailureCallback);
     heartbeatTimer->ChangePeriodMs(HEARTBEAT_TIMER_PERIOD_MS);
     heartbeatTimer->Start();
 
     while (1) {
-        GPIO::LED3::On();
-        osDelay(500);
-        GPIO::LED3::Off();
-        osDelay(500);
+        // GPIO::LED3::On();
+//        osDelay(500);
+        // GPIO::LED3::Off();
+//        osDelay(500);
+//    	GPIO::LED1::On();
+//    	GPIO::LED2::On();
+//    	GPIO::LED3::On();
+
 
         //Every cycle, print something out (for testing)
         // ("FlightTask::Run() - [%d] Seconds\n", tempSecondCounter++);

@@ -141,6 +141,12 @@ constexpr uint16_t ASSERT_SEND_MAX_TIME_MS = 250;        // Max time the assert 
 constexpr uint16_t ASSERT_TAKE_MAX_TIME_MS = 500;        // Max time in ms to take the assert semaphore
 constexpr UARTDriver* const DEFAULT_ASSERT_UART_DRIVER = UART::Debug;    // UART Handle that ASSERT messages are sent over
 
+// IWDG TASK
+constexpr uint8_t TASK_IWDG_PRIORITY = 1;  // Priority of the IWDG task
+constexpr uint8_t TASK_IWDG_QUEUE_DEPTH_OBJS = 10;  // Size of the IWDG task queue
+constexpr uint16_t TASK_IWDG_STACK_DEPTH_WORDS = 512;  // Size of the IWDG task stack
+
+
 /* System Functions ------------------------------------------------------------------*/
 //- Any system functions with an implementation here should be inline, and inline for a good reason (performance)
 //- Otherwise the function may have a better place in main_avionics.cpp

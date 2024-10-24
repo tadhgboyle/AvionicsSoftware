@@ -30,6 +30,7 @@
 #include "PressureTransducerTask.hpp"
 #include "BatteryTask.hpp"
 #include "GPSTask.hpp"
+#include "Core/IWDGTask.hpp"
 
 /* Global Variables ------------------------------------------------------------------*/
 Mutex Global::vaListMutex;
@@ -40,7 +41,8 @@ Mutex Global::vaListMutex;
 */
 void run_main() {
     // Init Tasks
-    WatchdogTask::Inst().InitTask();
+	IWDGTask::Inst().InitTask();
+    //WatchdogTask::Inst().InitTask();
     FlightTask::Inst().InitTask();
     UARTTask::Inst().InitTask();
     DebugTask::Inst().InitTask();

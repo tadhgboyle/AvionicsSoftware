@@ -143,7 +143,7 @@ void DebugTask::HandleDebugMessage(const char* msg)
     else if (strcmp(msg, "blinkled") == 0) {
         // Print message
         SOAR_PRINT("Debug 'LED blink' command requested\n");
-        GPIO::LED1::On();
+        // GPIO::LED1::On();
         // TODO: Send to HID task to blink LED, this shouldn't delay
     }
     else if (strcmp(msg, "baropoll") == 0) {

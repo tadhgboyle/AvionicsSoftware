@@ -157,18 +157,18 @@ void HDITask::BuzzBlinkSequence(HDIConfig blinkSequence)
     {
         // Start the buzzer
         if(!buzzerMuted_) {
-            HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
+        	HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_1);
         }
 
         // Turn on the LED and play the beep
-        GPIO::LED1::On();
+        //GPIO::LED1::On();
         osDelay(blinkSequence.delayMs); // a beep lasts this long
 
         // Stop the buzzer and turn off the LED
         if(!buzzerMuted_) {
             HAL_TIM_PWM_Stop(&htim2, TIM_CHANNEL_1);
         }
-        GPIO::LED1::Off();
+        //GPIO::LED1::Off();
 
         // Wait for the silence duration between beeps
 		osDelay(blinkSequence.delayMs);
