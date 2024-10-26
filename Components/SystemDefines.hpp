@@ -108,6 +108,11 @@ constexpr uint8_t BATTERY_TASK_RTOS_PRIORITY = 1;            // Priority of the 
 constexpr uint8_t BATTERY_TASK_QUEUE_DEPTH_OBJS = 10;        // Size of the battery voltage task queue
 constexpr uint16_t BATTERY_TASK_STACK_DEPTH_WORDS = 512;        // Size of the battery voltage task stack
 
+// IWDG TASK
+constexpr uint8_t TASK_IWDG_PRIORITY = 1;  // Priority of the IWDG task
+constexpr uint8_t TASK_IWDG_QUEUE_DEPTH_OBJS = 10;  // Size of the IWDG task queue
+constexpr uint16_t TASK_IWDG_STACK_DEPTH_WORDS = 512;  // Size of the IWDG task stack
+
 
 /* Flash Addresses ------------------------------------------------------------------*/
 // Start of the system storage area (spans 2 sectors)
@@ -140,11 +145,6 @@ constexpr uint16_t ASSERT_BUFFER_MAX_SIZE = 160;        // Max size in bytes of 
 constexpr uint16_t ASSERT_SEND_MAX_TIME_MS = 250;        // Max time the assert fail is allowed to wait to send header and message to HAL (will take up to 2x this since it sends 2 segments)
 constexpr uint16_t ASSERT_TAKE_MAX_TIME_MS = 500;        // Max time in ms to take the assert semaphore
 constexpr UARTDriver* const DEFAULT_ASSERT_UART_DRIVER = UART::Debug;    // UART Handle that ASSERT messages are sent over
-
-// IWDG TASK
-constexpr uint8_t TASK_IWDG_PRIORITY = 1;  // Priority of the IWDG task
-constexpr uint8_t TASK_IWDG_QUEUE_DEPTH_OBJS = 10;  // Size of the IWDG task queue
-constexpr uint16_t TASK_IWDG_STACK_DEPTH_WORDS = 512;  // Size of the IWDG task stack
 
 
 /* System Functions ------------------------------------------------------------------*/

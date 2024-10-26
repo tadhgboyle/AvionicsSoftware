@@ -30,7 +30,7 @@
 #include "PressureTransducerTask.hpp"
 #include "BatteryTask.hpp"
 #include "GPSTask.hpp"
-#include "Core/IWDGTask.hpp"
+#include "WDGTask.hpp"
 
 /* Global Variables ------------------------------------------------------------------*/
 Mutex Global::vaListMutex;
@@ -41,7 +41,6 @@ Mutex Global::vaListMutex;
 */
 void run_main() {
     // Init Tasks
-	IWDGTask::Inst().InitTask();
     //WatchdogTask::Inst().InitTask();
     FlightTask::Inst().InitTask();
     UARTTask::Inst().InitTask();
@@ -56,6 +55,7 @@ void run_main() {
     BatteryTask::Inst().InitTask();
     GPSTask::Inst().InitTask();
     FlashTask::Inst().InitTask();
+    WDGTask::Inst().InitTask();
 
     // Print System Boot Info : Warning, don't queue more than 10 prints before scheduler starts
     SOAR_PRINT("\n-- SOAR AVIONICS --\n");
