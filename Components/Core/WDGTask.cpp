@@ -15,8 +15,6 @@
 #include "GPIO.hpp"
 
 extern IWDG_HandleTypeDef hiwdg;
-int refreshIntervalValue = 9000;
-int* refreshInterval = &refreshIntervalValue;
 
 /* Macros --------------------------------------------------------------------*/
 
@@ -53,7 +51,7 @@ void WDGTask::InitTask()
             (UBaseType_t)TASK_IWDG_PRIORITY,
             (TaskHandle_t*)&rtTaskHandle);
 
-    //Ensure creation succeded
+    //Ensure creation succeeded
     SOAR_ASSERT(rtValue == pdPASS, "WDGTask::InitTask() - xTaskCreate() failed");
 }
 
@@ -63,21 +61,9 @@ void WDGTask::InitTask()
  */
 void WDGTask::Run(void * pvParams)
 {
-    GPIO::LED1::Off();
-	GPIO::LED2::Off();
-	GPIO::LED3::Off();
-
-    while (1) {
-        if (HAL_IWDG_Init(&hiwdg) != HAL_OK){
-    		GPIO::LED1::On();	// LED1 does not turn on
-    		Error_Handler();
-    	}
-
-    	GPIO::LED2::On(); 		// LED2 turns on
-    	//GPIO::LED3::Off();
-    	HAL_Delay(1000);
-    	GPIO::LED2::Off();		// LED2 does not turn off
-    }
+	while(1) {
+		HAL_IWDG_Refresh(&hiwdg);
+	}
 }
 
 /**
