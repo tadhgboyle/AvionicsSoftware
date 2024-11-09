@@ -8,6 +8,8 @@
 #ifndef C__IFACE_HPP_
 #define C__IFACE_HPP_
 
+//#include "WDGTask.hpp"
+
 void run_interface();
 
 void cpp_USART1_IRQHandler();

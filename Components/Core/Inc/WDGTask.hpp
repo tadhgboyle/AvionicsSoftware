@@ -26,6 +26,8 @@ public:
 
     void InitTask();
 
+    void InitIWDG();
+
 protected:
     static void RunTask(void* pvParams) { WDGTask::Inst().Run(pvParams); } // Static Task Interface, passes control to the instance Run();
 

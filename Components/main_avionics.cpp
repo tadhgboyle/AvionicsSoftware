@@ -56,6 +56,7 @@ void run_main() {
     GPSTask::Inst().InitTask();
     FlashTask::Inst().InitTask();
     WDGTask::Inst().InitTask();
+    WDGTask::Inst().InitIWDG();
 
     // Print System Boot Info : Warning, don't queue more than 10 prints before scheduler starts
     SOAR_PRINT("\n-- SOAR AVIONICS --\n");

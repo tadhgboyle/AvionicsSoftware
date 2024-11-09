@@ -34,6 +34,15 @@ WDGTask::WDGTask() : Task(TASK_IWDG_QUEUE_DEPTH_OBJS)
 {
 }
 
+void WDGTask::InitIWDG() {
+    hiwdg.Instance = IWDG;
+    hiwdg.Init.Prescaler = IWDG_PRESCALER_64;
+    hiwdg.Init.Reload = 2499; // 624
+
+    if (HAL_IWDG_Init(&hiwdg) != HAL_OK) {
+        Error_Handler();
+    }
+}
 /**
  * @brief Creates a task for the FreeRTOS Scheduler
  */
